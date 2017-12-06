@@ -7,6 +7,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//div[@class='assignment-masthead']/div/nav/div/span[@class='banner-date']/div")
@@ -70,4 +72,25 @@ public class HomePage extends BasePage {
     public WebElement getHeaderBanner() {
         return headerBanner;
     }
+
+    public WebElement getVisibleDelete(){
+        String xpath = "//table/tbody/tr[1]/td[3]/button";
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    public WebElement getVisibleCreate(){
+
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("btn-create")));
+    }
+
+    public int getVisibleTableRowCount() {
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(".//tbody/tr"))).size();
+
+
+    }
+
+
 }
