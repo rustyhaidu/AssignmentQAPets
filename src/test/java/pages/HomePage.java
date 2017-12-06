@@ -73,9 +73,33 @@ public class HomePage extends BasePage {
         return headerBanner;
     }
 
-    public WebElement getVisibleDelete(){
+    public WebElement getFirstVisibleDelete(){
         String xpath = "//table/tbody/tr[1]/td[3]/button";
         return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    public WebElement getFirstVisibleNameSpan(){
+        String xpath = "//table/tbody/tr[1]/td[1]/span";
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    public WebElement getFirstVisibleNameInput(){
+        String xpath = "//table/tbody/tr[1]/td[1]/input";
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    public WebElement getFirstVisibleStatusSpan(){
+        String xpath = "//table/tbody/tr[1]/td[2]/span";
+        return (new WebDriverWait( driver, 3))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    public WebElement getFirstVisibleStatusInput() {
+        String xpath = "//table/tbody/tr[1]/td[2]/input";
+        return (new WebDriverWait(driver, 3))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 

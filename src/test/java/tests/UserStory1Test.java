@@ -14,14 +14,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.StringTokenizer;
 
-public class UserStory1Test extends BaseTest {
+public class UserStory1Test extends BaseUserStoryTest {
 
-    private HomePage homePage;
-
-    @BeforeMethod
-    public void userStory1BeforeMethod() {
-        homePage = PageFactory.initElements(driver, HomePage.class);
-    }
 
     @Test
     public void currentDateTest() {
