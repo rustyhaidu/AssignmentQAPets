@@ -36,23 +36,24 @@ public class UserStory2Test extends BaseTest {
     @Test
     public void insert100PetsTest() throws InterruptedException {
 
-        int rowCount = homePage.getTableRowCount();
+        int rowCount = homePage.getVisibleTableRowCount();
 
         if (rowCount > 0) {
-            for (int i = 1; i <= rowCount; i++) {
-                Thread.sleep(100);
-                clickElement(homePage.getDeleteButton());
+            for (int i = 0; i < rowCount; i++) {
+               Thread.sleep(100);
+                clickElement(homePage.getVisibleDelete());
+               // homePage.getVisibleDelete().click();
             }
         }
 
         for (int i = 0; i < 100; i++) {
             homePage.getPetNameEdit().sendKeys("Pet" + i);
             homePage.getPetStatusEdit().sendKeys("Status" + i);
-            clickElement(homePage.getCreateButton());
+            clickElement(homePage.getVisibleCreate());
         }
 
         Thread.sleep(100);
-        rowCount = homePage.getTableRowCount();
+        rowCount = homePage.getVisibleTableRowCount();
 
         Assert.assertEquals(rowCount, 100);
     }
@@ -60,6 +61,7 @@ public class UserStory2Test extends BaseTest {
     @Test
     public void petListCountTest() {
         System.out.println(homePage.getTableRowCount());
+        System.out.println(homePage.getVisibleTableRowCount());
     }
 
     @Test
