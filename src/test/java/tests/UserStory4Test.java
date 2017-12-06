@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -45,20 +46,38 @@ public class UserStory4Test extends BaseUserStoryTest {
         clickElement(homePage.getFirstVisibleNameInput());
 
         homePage.getFirstVisibleNameInput().clear();
+        homePage.getFirstVisibleNameInput().sendKeys("PetName");
         WebElement focus = driver.switchTo().activeElement();
-        String placeholder = focus.getAttribute("class");
-        String placeholder2 = focus.getAttribute("value");
-        String placeholder3 = focus.getAttribute("placeholder");
+        String className = focus.getAttribute("class");
+        String petName = focus.getAttribute("value");
 
-        System.out.println(placeholder3);
-        System.out.println(placeholder2);
-        Assert.assertEquals("pet usr-input pet-status", placeholder);
+        Assert.assertEquals("pet usr-input pet-name", className);
+        Assert.assertEquals("PetName", petName);
 
+        homePage.getFirstVisibleNameInput().sendKeys(Keys.ESCAPE);
+        focus = driver.switchTo().activeElement();
+        className = focus.getAttribute("class");
+        petName = focus.getAttribute("value");
+
+        Assert.assertNotEquals("pet usr-input pet-name", className);
+        Assert.assertNotEquals("PetName", petName);
 
     }
 
     @Test
-    public void pressingEnterTest() {
+    public void pressingEnterTest() throws InterruptedException {
+        clickElement(homePage.getFirstVisibleNameSpan());
+        Thread.sleep(1000);
+        clickElement(homePage.getFirstVisibleNameInput());
+
+        homePage.getFirstVisibleNameInput().clear();
+        homePage.getFirstVisibleNameInput().sendKeys("PetNameSaved");
+
+        homePage.getFirstVisibleNameInput().sendKeys(Keys.ENTER);
+        Thread.sleep(1000);
+        String petName = homePage.getTableData(1,1).getText();
+
+        Assert.assertEquals("PetNameSaved", petName);
 
     }
 
