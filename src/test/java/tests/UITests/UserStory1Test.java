@@ -1,13 +1,9 @@
-package tests;
+package tests.UITests;
 
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
 
 import java.awt.*;
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package tests;
+package tests.UITests;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
@@ -9,7 +9,7 @@ public class BaseUserStoryTest extends BaseTest{
     HomePage homePage;
 
     @BeforeMethod
-    public void userStory1BeforeMethod() {
+    public void cleanUpBeforeMethod() {
         homePage = PageFactory.initElements(driver, HomePage.class);
         deleteAllPets();
     }
@@ -25,7 +25,6 @@ public class BaseUserStoryTest extends BaseTest{
                     e.printStackTrace();
                 }
                 clickElement(homePage.getFirstVisibleDelete());
-                // homePage.getFirstVisibleDelete().click();
             }
         }
     }

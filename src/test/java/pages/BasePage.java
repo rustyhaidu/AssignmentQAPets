@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class BasePage {
+public abstract class BasePage {
 
-    public static WebDriver driver;
+    static WebDriver driver;
 
     public void setDriver(WebDriver driver) {
-        this.driver = driver;
+        BasePage.driver = driver;
     }
 }

@@ -1,4 +1,4 @@
-package tests;
+package tests.UITests;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

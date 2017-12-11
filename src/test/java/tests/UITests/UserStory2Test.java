@@ -1,4 +1,4 @@
-package tests;
+package tests.UITests;
 
 
 import org.testng.Assert;
