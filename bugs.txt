@@ -1,0 +1,1 @@
+1. Pets can be saved with empty username and/or password
